@@ -39,6 +39,11 @@ export class ProductService{
        
     }
 
+    deleteProduct(productId:string){
+        const index=this.findProduct(productId)[1]
+        this.products.splice(index, 1)
+    }
+
     private findProduct(id:string):[Product, number]{
         console.log(id,'productIdproductIdproductId');
         const productIndex=this.products.findIndex(prod=>prod.id==id)
