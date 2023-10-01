@@ -4,8 +4,11 @@ import { Product } from './product.model';
 @ Injectable()
 export class ProductService{
     products: Product[]=[];
+    
     insertProduct(title:string,description:string,price:number){
-        const newProduct= new Product (new Date().toString(),title, description, price)
+        const productId=new Date().toString()
+        const newProduct= new Product (productId.toString(),title, description, price)
         this.products.push(newProduct)
+        return productId;
     }
 }
